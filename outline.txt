@@ -1,0 +1,21 @@
+/project
+│-- .bolt/
+│-- node_modules/
+│-- src/
+│   │-- App.tsx
+│   │-- index.css
+│   │-- main.tsx
+│   │-- vite-env.d.ts
+│
+│-- .gitignore
+│-- eslint.config.js
+│-- index.html
+│-- package-lock.json
+│-- package.json
+│-- postcss.config.js
+│-- README.md
+│-- tailwind.config.js
+│-- tsconfig.app.json
+│-- tsconfig.json
+│-- tsconfig.node.json
+│-- vite.config.ts
