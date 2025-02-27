@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Code2,
   GitBranch,
@@ -9,9 +9,9 @@ import {
   BookOpen,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Navbar from "./Navbar";
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -33,79 +33,10 @@ function App() {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMenuOpen(false);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#020617] via-[#0f172a] to-[#1e293b] text-white">
-      {/* Navigation */}
-      <div className="fixed w-full z-50 px-4 sm:px-6 lg:px-8 top-4">
-        <nav className="w-[1300px] mx-auto bg-[#112240]/80 backdrop-blur-sm rounded-full border border-[#233554] shadow-lg">
-          <div className="px-4 sm:px-6">
-            <div className="flex items-center justify-between h-16">
-              <div className="flex items-center">
-                <Infinity className="h-8 w-8 text-[#64ffda]" />
-                <span className="ml-2 text-xl font-semibold">
-                  Fishers Of Men
-                </span>
-              </div>
-
-              {/* Desktop Navigation */}
-              <div className="hidden md:block">
-                <div className="flex items-center space-x-8">
-                  {["principles", "debugging", "agile", "karma"].map(
-                    (section) => (
-                      <button
-                        key={section}
-                        onClick={() => scrollToSection(section)}
-                        className="text-[#8892b0] hover:text-[#64ffda] transition-colors capitalize"
-                      >
-                        {section}
-                      </button>
-                    )
-                  )}
-                </div>
-              </div>
-
-              {/* Mobile Navigation Button */}
-              <div className="md:hidden">
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="text-[#8892b0] hover:text-white"
-                >
-                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile Navigation Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 mt-2">
-              <div className="mx-4 bg-[#112240] rounded-lg border border-[#233554] shadow-lg">
-                <div className="px-2 pt-2 pb-3 space-y-1">
-                  {["principles", "debugging", "agile", "karma"].map(
-                    (section) => (
-                      <button
-                        key={section}
-                        onClick={() => scrollToSection(section)}
-                        className="block px-3 py-2 text-[#8892b0] hover:text-[#64ffda] transition-colors w-full text-left capitalize rounded-md hover:bg-[#1a365d]/50"
-                      >
-                        {section}
-                      </button>
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
-        </nav>
-      </div>
+      {/* Navbar */}
+      <Navbar />
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -338,7 +269,7 @@ function App() {
       {/* Karma Section */}
 
       <section
-        id="dys"
+        id="DYS"
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-7xl mx-auto">
