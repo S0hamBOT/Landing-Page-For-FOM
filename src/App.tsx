@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function App() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -404,17 +405,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-[#8892b0]">
-            Uniting the wisdom of ancient teachings with modern development
-            practices
-          </p>
-          <div className="mt-8 flex justify-center space-x-6">
-            <Infinity className="h-6 w-6 text-[#64ffda]" />
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
