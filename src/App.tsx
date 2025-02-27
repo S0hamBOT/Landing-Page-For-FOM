@@ -289,7 +289,15 @@
 // export default App;
 
 import React, { useEffect, useRef } from "react";
-import { Code2, GitBranch, Bug, Infinity, Menu, X } from "lucide-react";
+import {
+  Code2,
+  GitBranch,
+  Bug,
+  Infinity,
+  Menu,
+  X,
+  BookOpen,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 function App() {
@@ -390,19 +398,78 @@ function App() {
       </div>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-7xl mx-auto">
-          <h1 className="text-4xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-[#64ffda] to-[#a8fff0] text-transparent bg-clip-text">
-            Where Code Meets Consciousness
-          </h1>
-          <p className="text-xl text-[#8892b0] max-w-3xl mx-auto">
-            Discover the profound connection between software development and
-            the timeless wisdom of the Bhagavad Gita
-          </p>
+      <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 relative z-10">
+          {/* Image on the Left */}
+          <div className="flex justify-center">
+            <img
+              src="/photos/without_bg_logo1.png"
+              alt="Hero Image"
+              className="max-w-md rounded-lg transform transition-transform duration-1000 ease-out hover:scale-105 opacity-0 animate-fade-in-scale"
+            />
+          </div>
+
+          {/* Text on the Right */}
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl sm:text-6xl font-bold mb-4 bg-gradient-to-r from-[#64ffda] to-[#a8fff0] text-transparent bg-clip-text opacity-0 transform translate-y-8 animate-fade-in-slide-up glowing-text">
+              Where Code Meets Consciousness
+            </h1>
+            <p className="text-xl text-[#8892b0] max-w-3xl animate-scale-up">
+              Bridging development with ancient wisdom.
+            </p>
+          </div>
         </div>
+
+        {/* Inline Styles for Animations */}
+        <style>{`
+          @keyframes fadeInScale {
+            0% {
+              opacity: 0;
+              transform: scale(0.9);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+
+          .animate-fade-in-scale {
+            animation: fadeInScale 1.5s ease-out forwards;
+          }
+
+          @keyframes fadeInSlideUp {
+            0% {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .animate-fade-in-slide-up {
+            animation: fadeInSlideUp 1.5s ease-out forwards;
+          }
+
+          @keyframes scaleUp {
+            0% {
+              transform: scale(0.95);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+
+          .animate-scale-up {
+            animation: scaleUp 1s ease-out forwards;
+          }
+
+          
+        `}</style>
       </section>
 
-      {/* Clean Code Principles Section */}
+      {/* Code Your Life: A Blueprint from Software to Spirituality Section */}
       <section
         id="principles"
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
@@ -411,32 +478,37 @@ function App() {
           <div className="animate-on-scroll opacity-0">
             <div className="flex items-center justify-center mb-12">
               <Code2 className="h-12 w-12 text-[#64ffda] mr-4" />
-              <h2 className="text-3xl font-bold">
-                Clean Code & Mindful Living
+              <h2 className="text-4xl font-bold text-white tracking-tight">
+                Code with Purpose, Live with Purpose
               </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
-                <p className="text-[#8892b0]">
-                  "Just as a well-organized codebase brings clarity and
-                  efficiency, the Gita teaches us that a disciplined mind leads
-                  to clarity of purpose."
+                <p className="text-[#8892b0] text-lg leading-relaxed">
+                  <span className="text-[#64ffda] font-bold">Imagine:</span>{" "}
+                  Every function has <strong>dharma</strong>, a role, a reason.
+                  A structured app, a clear objective. This reflects{" "}
+                  <strong>dharma</strong>, our inherent duty.
+                  <br />
+                  <br />
+                  <span className="text-[#64ffda] font-bold">
+                    Now, consider your life.
+                  </span>{" "}
+                  Clarity? Direction? Aimless code, messy software. Aimless
+                  life, lost and unfulfilled. This stems from attachment.
+                  <br />
+                  <br />
+                  <span className="text-[#64ffda] font-bold">
+                    Spirituality, the compass.
+                  </span>{" "}
+                  'Why am I doing this?' This inquiry, <strong>yoga</strong>.
+                  Life's more than work—growth, service, fulfillment. Design
+                  life, not just live it.
                 </p>
-                <pre className="bg-[#112240] p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm">
-                    {`// The path of clean code
-function purifyCode(codebase) {
-  return codebase
-    .removeRedundancy()
-    .maintainClarity()
-    .followPrinciples();
-}`}
-                  </code>
-                </pre>
               </div>
-              <div className="rounded-lg overflow-hidden">
+              <div className="rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&q=80&w=800"
+                  src="/photos/purpose.png"
                   alt="Meditation and Code"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -448,7 +520,7 @@ function purifyCode(codebase) {
       </section>
 
       {/* Debugging Section */}
-      <section
+      {/* <section
         id="debugging"
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
       >
@@ -456,34 +528,97 @@ function purifyCode(codebase) {
           <div className="animate-on-scroll opacity-0">
             <div className="flex items-center justify-center mb-12">
               <Bug className="h-12 w-12 text-[#64ffda] mr-4" />
-              <h2 className="text-3xl font-bold">
-                Debugging & Self-Reflection
+              <h2 className="text-4xl font-bold text-white tracking-tight">
+                The Art of Detachment: Focus on the Process, Not Just the Output
               </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="rounded-lg overflow-hidden order-2 md:order-1">
+              <div className="rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800"
+                  src="/photos/detachment.png"
                   alt="Reflection"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
-              <div className="space-y-6 order-1 md:order-2">
-                <p className="text-[#8892b0]">
-                  "Like debugging reveals the root cause of software issues,
-                  self-reflection illuminates the source of our challenges."
+              <div className="space-y-6">
+                <p className="text-[#8892b0] text-lg leading-relaxed">
+                  <span className="text-[#64ffda] font-semibold">Imagine:</span>{" "}
+                  You’ve spent months building an app. Launch day comes, and… it
+                  crashes. Users complain. One guy says,{" "}
+                  <i>"I liked the old version better."</i> Another finds a typo
+                  in your comments. 🤦
+                  <br />
+                  <br />
+                  <span className="text-[#64ffda] font-semibold">
+                    Now, consider your life.
+                  </span>{" "}
+                  Ever felt like no matter what you do, someone always has an
+                  opinion? Just like you can’t control user feedback, you can’t
+                  control life’s outcomes. Holding on too tightly leads to
+                  stress, just like debugging at 3 AM.
+                  <br />
+                  <br />
+                  <span className="text-[#64ffda] font-semibold">
+                    Spirituality provides the ultimate bug fix.
+                  </span>{" "}
+                  The Bhagavad Gita teaches <i>Karmanye vadhikaraste</i>—do your
+                  best, but detach from the results. Code, ship, learn, repeat.
+                  Inner peace is the <b>real MVP.</b>
                 </p>
-                <pre className="bg-[#112240] p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm">
-                    {`// The practice of reflection
-function introspect(mind) {
-  const patterns = observe(mind);
-  const insights = analyze(patterns);
-  return transform(insights);
-}`}
-                  </code>
-                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      <section
+        id="karma"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="animate-on-scroll opacity-0">
+            <div className="flex items-center justify-center mb-12">
+              <GitBranch className="h-12 w-12 text-[#64ffda] mr-4" />
+              <h2 className="text-3xl font-bold">
+                Serving a Higher Purpose: The True Joy of Contribution
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="rounded-lg overflow-hidden order-2 md:order-1">
+                <img
+                  src="/photos/contribution.png"
+                  alt="Version Control"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="space-y-6 order-1 md:order-2">
+                <p className="text-[#8892b0] text-lg leading-relaxed">
+                  <span className="text-[#64ffda] font-semibold">Imagine:</span>{" "}
+                  You spend weeks writing the perfect open-source project.
+                  Someone forks it, improves it, and doesn’t even credit you.
+                  Ouch.
+                  <br />
+                  <br />
+                  <span className="text-[#64ffda] font-semibold">
+                    Now, consider your life.
+                  </span>{" "}
+                  Ever noticed how the best moments come from{" "}
+                  <strong>helping others</strong>—not just chasing personal
+                  gain? In coding, mentorship and ethical development make the
+                  community stronger. In life, selfless service (<i>Seva</i>)
+                  does the same.
+                  <br />
+                  <br />
+                  <span className="text-[#64ffda] font-semibold">
+                    Spirituality is the ultimate open-source contribution.
+                  </span>{" "}
+                  Shift from <i>"What can I get?"</i> to{" "}
+                  <i>"How can I give?"</i>—whether through code, mentorship, or
+                  just being kind. The most impactful projects (and lives) are
+                  built on giving.
+                </p>
               </div>
             </div>
           </div>
@@ -492,38 +627,48 @@ function introspect(mind) {
 
       {/* Agile Section */}
       <section
-        id="agile"
+        id="principles"
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-7xl mx-auto">
           <div className="animate-on-scroll opacity-0">
             <div className="flex items-center justify-center mb-12">
-              <Infinity className="h-12 w-12 text-[#64ffda] mr-4" />
-              <h2 className="text-3xl font-bold">Agile & Adaptability</h2>
+              <Code2 className="h-12 w-12 text-[#64ffda] mr-4" />
+              <h2 className="text-4xl font-bold text-white tracking-tight">
+                Debugging the Mind: Removing Internal Bugs
+              </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
-                <p className="text-[#8892b0]">
-                  "The Gita teaches us to act without attachment to results,
-                  just as Agile methodology embraces change and adaptation."
+                <p className="text-[#8892b0] text-lg leading-relaxed">
+                  <span className="text-[#64ffda] font-semibold">Imagine:</span>{" "}
+                  You’re deep in code, everything looks fine… until you run it.{" "}
+                  <i>Syntax error.</i> You fix it. Now, it’s an{" "}
+                  <i>undefined variable.</i> Finally, the app works, but it’s
+                  slower than a dial-up connection.
+                  <br />
+                  <br />
+                  <span className="text-[#64ffda] font-semibold">
+                    Now, consider your life.
+                  </span>{" "}
+                  Just like buggy code slows down execution, negative thoughts,
+                  self-doubt, and distractions make life lag. Ever tried
+                  focusing while overthinking? It’s like running a loop that
+                  never breaks.
+                  <br />
+                  <br />
+                  <span className="text-[#64ffda] font-semibold">
+                    Spirituality is the ultimate debugger.
+                  </span>{" "}
+                  Mindfulness and meditation help us step through our mental
+                  code, find the bottlenecks, and optimize our thoughts. A clear
+                  mind means fewer crashes—both in code and in life.
                 </p>
-                <pre className="bg-[#112240] p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm">
-                    {`// Embracing change
-class AgileSpirit {
-  adapt(change) {
-    this.embrace(change);
-    this.learn();
-    this.grow();
-  }
-}`}
-                  </code>
-                </pre>
               </div>
-              <div className="rounded-lg overflow-hidden">
+              <div className="rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"
-                  alt="Agile Development"
+                  src="/photos/debug.png"
+                  alt="Meditation and Code"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -534,40 +679,136 @@ class AgileSpirit {
       </section>
 
       {/* Karma Section */}
+
       <section
-        id="karma"
+        id="dys"
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-7xl mx-auto">
           <div className="animate-on-scroll opacity-0">
             <div className="flex items-center justify-center mb-12">
-              <GitBranch className="h-12 w-12 text-[#64ffda] mr-4" />
-              <h2 className="text-3xl font-bold">Version Control & Karma</h2>
+              <BookOpen className="h-12 w-12 text-[#64ffda] mr-4" />
+              <h2 className="text-3xl font-bold">
+                Discover Yourself: The Ultimate Debugging Framework for Life
+              </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Left Section: Image & Description */}
               <div className="rounded-lg overflow-hidden order-2 md:order-1">
                 <img
-                  src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800"
-                  alt="Version Control"
-                  className="w-full h-full object-cover"
+                  src="/photos/hg_rsp.png"
+                  alt="Self Discovery"
+                  className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
                 />
+                <div className="bg-[#1a1a2e] p-6 mt-4 rounded-lg shadow-lg text-[#8892b0]">
+                  <h3 className="text-2xl font-bold text-white mb-4">
+                    HG Radheshyam Das
+                  </h3>
+
+                  {/* Description */}
+                  <div className="text-left">
+                    <p>
+                      <strong>- IIT Bombay Alumni</strong> (Topper of his
+                      batch); served at Thermax and CECRI as Senior Design
+                      Executive.
+                    </p>
+                    <p>
+                      <strong>- Founding President</strong> of VOICE Youth Clubs
+                      in Indian Universities (Vedic Oasis for Inspiration,
+                      Culture and Education).
+                    </p>
+                    <p>
+                      <strong>- President of ISKCON, Pune</strong> since 1997
+                      with a community of 6000 members.
+                    </p>
+                    <p>
+                      <strong>- Designer</strong> of internationally acclaimed
+                      DISCOVER YOURSELF 8-session Course for youth and
+                      corporates.
+                    </p>
+                    <p>
+                      <strong>- Compiler of Youth Books</strong> like{" "}
+                      <i>'Stress to Smile'</i>,{" "}
+                      <i>'Ten Volume Gita for all made easy (GAME)'</i> etc.
+                    </p>
+                    <p>
+                      <strong>- Global Excellence Award</strong> winner for
+                      educating Youth in Bhagavad Gita.
+                    </p>
+                    <p>
+                      <strong>- Youth Trainer</strong> for 30+ years in top
+                      institutions like IITs, NITs, and reaches out to multiple
+                      cities across India.
+                    </p>
+                    <p>
+                      <strong>- Seminar Presenter</strong> at MIT Boston,
+                      Stanford University, Texas A&M, University of Texas
+                      Dallas, etc.
+                    </p>
+                    <p>
+                      <strong>- Corporate Seminar Presenter</strong> at
+                      Microsoft, Amazon, Bank of America, Infosys, Cognizant,
+                      Persistent, etc.
+                    </p>
+                    <p>
+                      <strong>- GDO(Global Duty Officer)</strong> for Western
+                      youth outreach in USA, Canada for three months/year
+                    </p>
+                  </div>
+                </div>
               </div>
+
+              {/* Right Section: DYS Course Photo */}
               <div className="space-y-6 order-1 md:order-2">
-                <p className="text-[#8892b0]">
-                  "Like version control tracks every change in our code, karma
-                  records every action in our journey."
+                <p className="text-[#8892b0] text-lg leading-relaxed">
+                  <span className="text-[#64ffda] font-semibold">Imagine:</span>{" "}
+                  You’ve started debugging your thoughts with mindfulness, but
+                  what if you had a <strong>complete roadmap</strong> for life’s
+                  biggest questions?
+                  <br />
+                  <br />
+                  <span className="text-[#64ffda] font-semibold">
+                    Just like coding has core concepts, self-awareness starts
+                    with discovery.
+                  </span>{" "}
+                  The <strong>DYS (Discover Yourself)</strong> program is like a
+                  <i>debugger for the soul</i>, helping you optimize life
+                  itself.
+                  <br />
                 </p>
-                <pre className="bg-[#112240] p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm">
-                    {`// The law of karma
-async function karmaFlow() {
-  const actions = await perform(duty);
-  const results = await manifest(actions);
-  return evolve(results);
-}`}
-                  </code>
-                </pre>
+
+                <p className="text-[#8892b0] text-lg leading-relaxed">
+                  <span className="text-[#64ffda] font-semibold">
+                    Connecting to Mindfulness & Meditation:
+                  </span>{" "}
+                  Just like <i>"Practice mindfulness and meditation"</i>{" "}
+                  improves focus, this course helps you step back, refactor your
+                  beliefs, and build a strong foundation for life—just like a
+                  well-structured codebase.
+                </p>
+
+                {/* DYS Image */}
+                <div className="rounded-lg overflow-hidden mt-8">
+                  <img
+                    src="/photos/dys.png"
+                    alt="Discover Yourself Course"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Know More Button */}
+                <div className="mt-6 flex justify-center">
+                  <a
+                    href="YOUR_LINK_HERE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 text-lg font-semibold text-white bg-[#2a3a55] rounded-lg shadow-lg hover:bg-[#64ffda] transition duration-300"
+                  >
+                    Know More
+                  </a>
+                </div>
               </div>
             </div>
           </div>
